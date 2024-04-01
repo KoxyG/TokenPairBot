@@ -1,0 +1,15 @@
+{
+  "name": "tokenpairbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.tx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ethers": "5.7",
+    "web3": "^4.7.0"
+  }
+}
