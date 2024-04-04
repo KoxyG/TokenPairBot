@@ -65,6 +65,21 @@ async function listenForPairCreatedEvents() {
       },
   ];
 
+  const ERC20Abi = [{
+    "constant": true,
+    "inputs": [],
+    "name": "name",
+    "outputs": [
+        {
+            "name": "",
+            "type": "string"
+        }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+},];
+
   const factoryContract = new web3.eth.Contract(
     [
       {
@@ -149,6 +164,34 @@ async function listenForPairCreatedEvents() {
             })
             .catch((error) => {
               console.error("Error fetching reserves:", error);
+            });
+        }
+
+        if(Token0) {
+          var token0Contract = new web3.eth.Contract(ERC20Abi, Token0);
+
+          token0Contract.methods
+            .name()
+            .call()
+            .then((name) => {
+              console.log("Token 0 Name: ", name);
+            })
+            .catch((error) => {
+              console.error("Error fetching token0 name:", error);
+            });
+        }
+
+        if(Token1) {
+          var token0Contract = new web3.eth.Contract(ERC20Abi, Token1);
+
+          token0Contract.methods
+            .name()
+            .call()
+            .then((name) => {
+              console.log("Token 1 Name: ", name);
+            })
+            .catch((error) => {
+              console.error("Error fetching token1 name:", error);
             });
         }
       });
